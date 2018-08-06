@@ -14,7 +14,7 @@ public ShowList(){
 }
 
 public ShowList copy(ShowList showList){
-    showList = clone("caca");
+    showList = clone("second test");
 }
 
     public class ShowNode {
