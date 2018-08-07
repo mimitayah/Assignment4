@@ -1,147 +1,91 @@
-import java.awt.*;
-import java.util.*;
-import java.util.List;
+public class ShowList {
 
-import static java.lang.System.out;
+	// b)
+	private ShowNode head;		// probably not the right type
+	// c)
+	private int size;
 
-public class ShowList implements List<ShowList.ShowNode> {
+	// d) default constructor
+	public ShowList() {
+		head = null;
+	}
 
-    @Override
-    public Object[] toArray() {
-        return new Object[0];
-    }
+	// e) copy constructor
+	public ShowList(ShowList obj) {
+		this.head = obj.head;
+		this.size = obj.size;
+	}
 
-    @Override
-    public ShowNode get(int index) {
-        return null;
-    }
-
-    @Override
-    public ShowNode set(int index, ShowNode element) {
-        return null;
-    }
-
-    @Override
-    public boolean addAll(int index, Collection<? extends ShowNode> c) {
-        return false;
-    }
-
-    @Override
-    public ListIterator<ShowNode> listIterator() {
-        return null;
-    }
-
-    @Override
-    public <T> T[] toArray(T[] a) {
-        return null;
-    }
-
-    @Override
-    public boolean removeAll(Collection<?> c) {
-        return false;
-    }
-
-    @Override
-    public boolean retainAll(Collection<?> c) {
-
-    }
-
-    @Override
-    public void clear() {
-
-    }
-
-    @Override
-    public Iterator<ShowNode> iterator() {
-        return null;
-    }
-
-    @Override
-    public void add(int index, ShowNode element) {
-
-    }
-
-    @Override
-    public boolean add(ShowNode showNode) {
-        return false;
-    }
-
-    @Override
-    public int lastIndexOf(Object o) {
-        return 0;
-    }
-
-    @Override
-    public int size() {
-        return 0;
-    }
+	// f) addToStart method
+	public void addToStart(TVShow obj) {
+		head = new ShowNode(obj, head);
+	}
+	
+	// g) insertAtIndex method
+	public void insertAtIndex(TVShow obj, int i) {
+		if (i < 0 || i > (size - 1)) {
+			throw new NoSuchElementException(); 		// a reviser
+			System.exit(0);
+		}
+		else {
+			// to continue
+		}
+	}
 
 
-    @Override
-    public ListIterator<ShowNode> listIterator(int index) {
-        return null;
-    }
 
-    public ShowList(){
-    List<ShowList> showNodeList = new ArrayList<>();
-}
 
-/*public ShowList copy(ShowList showList){
-    showList = clone("second test");
-}*/
 
-public void insertAtIndex(TVShow tvShow, int index ) throws NoSuchElementException{
-if (index <-1 || index>size-1){
-    throw new NoSuchElementException();
-}
-    ShowList.ShowNode newElement = new ShowNode(tvShow, );
-}
 
-public void addToStart (TVShow tvShow){
+	// a) Inner class
+	public class ShowNode implements Cloneable {
 
-    ShowList.ShowNode newElement = new ShowNode(tvShow, );
-    newElement.add(0, );
+		// i. private attributes
+		private TVShow aShow;
+		private ShowNode pointer;		// recheck
 
-}
+		// ii. default constructor
+		public ShowNode() {
+			this.aShow = null;
+			this.pointer = null;
+		}
 
-    public class ShowNode {
+		// iii. parameterized constructor
+		public ShowNode(TVShow a, ShowNode b) {
+			this.aShow = a;
+			this.pointer = b;
+		}
 
-        private TVShow tvShow;
-        private Point;
+		// iv. copy constructor
+		public ShowNode(ShowNode obj) {
+			this.aShow = obj.aShow;
+			this.pointer = obj.pointer;
+		}
 
-        public ShowNode(){
-            tvShow=null;
-            showNode=null;
-        }
+		// v. clone method
 
-        public ShowNode(TVShow tvShow, ShowNode showNode){
-            this.showNode = showNode;
-            this.tvShow = tvShow;
-        }
 
-        //copy constructor
+		// vi. accessor and mutator methods
+		public TVShow getaShow() {
+			return aShow;
+		}
 
-        public ShowNode clone() {
-            Scanner scanner = new Scanner(System.in);
-            ShowNode showNodeClone = new ShowNode(tvShow, showNode);
-            return showNodeClone;
-        }
+		public void setaShow(TVShow aShow) {
+			this.aShow = aShow;
+		}
 
-        public ShowNode getShowNode() {
-            return showNode;
-        }
+		public ShowNode getPointer() {
+			return pointer;
+		}
 
-        public TVShow getTvShow() {
-            return tvShow;
-        }
+		public void setPointer(ShowNode pointer) {
+			this.pointer = pointer;
+		}
 
-        public void setShowNode(ShowNode showNode) {
-            this.showNode = showNode;
-        }
+	}
 
-        public void setTvShow(TVShow tvShow) {
-            this.tvShow = tvShow;
-        }
-    }
+
+
+
 
 }
